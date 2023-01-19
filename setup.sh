@@ -55,4 +55,3 @@ sudo sed -i "/^${target_user}:x:*/ s/${target_user}:x:${user_uid}:${user_gid}*/$
 
 echo "Clone Github Repo"
 git clone https://github.com/bio-it/LabgeniusSystem
-sudo reboot
