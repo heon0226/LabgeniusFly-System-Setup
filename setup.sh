@@ -8,8 +8,6 @@ for f in *.sh; do
     fi
 done
 
-echo "Change user to root"
-
 echo "Allow SSH RootLogin"
 # Set allow ssh root login
 sudo sed -i "/^#PermitRootLogin/ s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config
@@ -17,19 +15,19 @@ sudo sed -i "/^#StrictModes/ s/#StrictModes.*/StrictModes yes/" /etc/ssh/sshd_co
 sudo service sshd restart
 
 echo "Initial Setup"
-# user append in i2c group 
+# user append in i2c1 group 
 sudo adduser $target_user i2c
 # user append in root group 
 sudo adduser $target_user root
-sudo sed "/^root/ a$target_user 	ALL=(ALL:ALL) ALL" /etc/sudoers
+sudo sed "/^root/ a${target_user} 	ALL=(ALL:ALL) ALL" /etc/sudoers
 
 # change user uid and gid for hidlib Permission
 root_uid=$(id -u root)
 root_gid=$(id -g root)
-user_uid=$(id -u $target_user)
-user_gid=$(id -u $target_user)
+user_uid=$(id -u ${target_user})
+user_gid=$(id -u ${target_user})
 
-sudo sed -i "/^$target_user:x:*/ s/$target_user:x:${user_uid}:${user_gid}*/$target_user:x:${root_uid}:${root_gid}/" /etc/passwd
+sudo sed -i "/^${target_user}:x:*/ s/${target_user}:x:${user_uid}:${user_gid}*/${target_user}:x:${root_uid}:${root_gid}/" /etc/passwd
 
 # update & upgrade apt repository
 echo "apt update & upgrade"
