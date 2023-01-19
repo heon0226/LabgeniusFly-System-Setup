@@ -55,4 +55,5 @@ sudo apt install nodejs
 sudo npm install -g npm
 sudo npm install -g pm2
 
+git clone https://github.com/bio-it/LabgeniusSystem
 sudo reboot
