@@ -11,7 +11,7 @@ done
 # update & upgrade apt repository
 echo "apt update & upgrade"
 curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-sudo apt update && sudo apt upgrade -y
+sudo apt update -y && sudo apt upgrade -y
 
 # install apt packages 
 
@@ -19,7 +19,7 @@ echo "Instal apt packages"
 sudo apt install -y git vim python3-pip 
 sudo apt install -y python3-smbus python3-numpy libzmq3-dev libhidapi-hidraw0 
 sudo apt install -y i2c-tools pigpio pigpiod
-sudo apt install -y nodejs
+sudo apt install -y nodejs npm
 echo "Update PIP"
 python3 -m pip install -U pip
 
