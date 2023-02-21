@@ -17,7 +17,7 @@ sudo apt update -y && sudo apt upgrade -y
 
 echo "Instal apt packages"
 sudo apt install -y git vim python3-pip 
-sudo apt install -y python3-smbus python3-numpy libzmq3-dev libhidapi-hidraw0 
+sudo apt install -y python3-smbus python3-numpy libzmq3-dev libhidapi-hidraw0 libatlas-base-dev
 sudo apt install -y i2c-tools pigpio pigpiod
 sudo apt install -y nodejs npm
 echo "Update PIP"
@@ -54,4 +54,5 @@ user_gid=$(id -u ${target_user})
 sudo sed -i "/^${target_user}:x:*/ s/${target_user}:x:${user_uid}:${user_gid}*/${target_user}:x:${root_uid}:${root_gid}/" /etc/passwd
 
 echo "Clone Github Repo"
-git clone https://github.com/bio-it/LabgeniusSystem
+git clone -b l6470 https://github.com/heon0226/LabGC-Fly-web.git
+git clone -b l6470 https://github.com/heon0226/LabgeniusFly.git
