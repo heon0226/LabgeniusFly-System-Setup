@@ -10,7 +10,6 @@ done
 
 # update & upgrade apt repository
 echo "apt update & upgrade"
-sudo curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 sudo apt update -y && sudo apt upgrade -y
 
 # install apt packages 
@@ -19,7 +18,6 @@ echo "Instal apt packages"
 sudo apt install -y git vim python3-pip 
 sudo apt install -y python3-smbus python3-numpy libzmq3-dev libhidapi-hidraw0 libatlas-base-dev
 sudo apt install -y i2c-tools pigpio pigpiod
-sudo apt install -y nodejs npm
 
 # auto start pigpiod service
 sudo systemctl enable pigpiod
@@ -32,6 +30,10 @@ echo "Install pip packages"
 # install python packages
 pip3 install pyzmq smbus hid zmq gpio
 pip3 install flask flask-restful flask-cors
+
+# Install nodejs and npm 
+sudo curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+sudo apt install -y nodejs npm
 
 echo "NodeJS Package Installing"
 sudo npm install -g npm
