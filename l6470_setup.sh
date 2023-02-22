@@ -32,7 +32,7 @@ pip3 install pyzmq smbus hid zmq gpio
 pip3 install flask flask-restful flask-cors
 
 # Install nodejs and npm 
-curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
 sudo apt install -y nodejs npm
 
 echo "NodeJS Package Installing"
