@@ -10,7 +10,7 @@ done
 
 # update & upgrade apt repository
 echo "apt update & upgrade"
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+sudo curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 sudo apt update -y && sudo apt upgrade -y
 
 # install apt packages 
