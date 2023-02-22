@@ -20,6 +20,11 @@ sudo apt install -y git vim python3-pip
 sudo apt install -y python3-smbus python3-numpy libzmq3-dev libhidapi-hidraw0 libatlas-base-dev
 sudo apt install -y i2c-tools pigpio pigpiod
 sudo apt install -y nodejs npm
+
+# auto start pigpiod service
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
 echo "Update PIP"
 python3 -m pip install -U pip
 
