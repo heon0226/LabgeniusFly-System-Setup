@@ -1,0 +1,14 @@
+[Unit]
+Description=Labgenius System Magneto Controller
+After=multi-user.target LabgeniusAPI.service LabgeniusWeb.service
+
+[Service]
+Type=idle
+WorkingDirectory=/home/labgenius/LabgeniusFly/system
+User=labgenius
+ExecStart=/usr/bin/python3 -u /home/labgenius/LabgeniusFly/system/magnetoController.py
+StandardOutput=file:/home/labgenius/magneto.log
+StandardError=file:/home/labgenius/magneto-error.log
+
+[Install]
+WantedBy=multi-user.target

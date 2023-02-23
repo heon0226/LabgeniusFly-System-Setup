@@ -1,0 +1,14 @@
+[Unit]
+Description=Labgenius System API
+After=multi-user.target
+
+[Service]
+Type=idle
+WorkingDirectory=/home/labgenius/LabgeniusFly/system
+User=labgenius
+ExecStart=/usr/bin/python3 -u /home/labgenius/LabgeniusFly/system/app.py
+StandardOutput=file:/home/labgenius/api.log
+StandardError=file:/home/labgenius/api-error.log
+
+[Install]
+WantedBy=multi-user.target

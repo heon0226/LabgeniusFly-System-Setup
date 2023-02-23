@@ -1,0 +1,14 @@
+[Unit]
+Description=Labgenius Web Page
+After=multi-user.target
+
+[Service]
+Type=idle
+WorkingDirectory=/home/labgenius/LabGC-Fly-web
+User=labgenius
+ExecStart=/usr/bin/python3 -u /home/labgenius/LabGC-Fly-web/app.py
+StandardOutput=file:/home/labgenius/web.log
+StandardError=file:/home/labgenius/web-error.log
+
+[Install]
+WantedBy=multi-user.target
