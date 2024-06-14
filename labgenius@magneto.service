@@ -1,0 +1,14 @@
+[Unit]
+Description=Labgenius System Magneto Service
+After=ssh.service
+
+[Service]
+Type=idle
+WorkingDirectory=/home/labgenius/LabgeniusFly/system
+User=labgenius
+ExecStart=/usr/bin/python3 -u /home/labgenius/LabgeniusFly/system/ExtractController.py >> /home/labgenius/logs/magneto.log 2>&1
+Restart=on-success
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

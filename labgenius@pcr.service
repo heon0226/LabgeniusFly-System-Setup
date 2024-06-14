@@ -1,0 +1,15 @@
+[Unit]
+Description=Labgenius System PCR Controller
+After=ssh.service
+
+[Service]
+Type=idle
+WorkingDirectory=/home/labgenius/LabgeniusFly/system
+User=labgenius
+ExecStart=/usr/bin/python3 -u /home/labgenius/LabgeniusFly/system/PcrHidController.py >> /home/labgenius/logs/pcr.log 2>&1
+Restart=on-failure
+RestartSec=10s
+StandardOutput=sysout
+StandardError=/home/labgenius/logs/pcr-error.log
+[Install]
+WantedBy=multi-user.target

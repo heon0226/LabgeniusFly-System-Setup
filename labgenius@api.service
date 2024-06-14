@@ -1,0 +1,14 @@
+[Unit]
+Description=Labgenius System API Server
+After=ssh.service labgenius@magneto.service labgenius@pcr.service
+
+[Service]
+Type=idle
+WorkingDirectory=/home/labgenius/LabgeniusFly/system
+User=labgenius
+ExecStart=/usr/bin/uwsgi --ini /etc/uwsgi/apps-available/labgenius-api.ini
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
